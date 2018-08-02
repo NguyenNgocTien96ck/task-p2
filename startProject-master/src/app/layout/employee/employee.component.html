@@ -1,0 +1,36 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>address</th>
+            <th>Salary</th>
+            <th>Responsilities</th>
+        </tr>
+    </thead>
+    <tr style="font-size: 14px; color: brown">
+        <td> 123 </td>
+        <td>abc</td>
+        <td>xyz</td>
+        <td>Nam</td>
+        <td>0123456</td>
+        <td>Tam Đàn</td>
+        <td>8000000</td>
+        <td>asd,asd,ád</td>
+    </tr>
+    <tr style="font-size: 14px; color: brown">
+            <td> 123 </td>
+            <td>abc</td>
+            <td>xyz</td>
+            <td>Nam</td>
+            <td>0123456</td>
+            <td>Tam Đàn</td>
+            <td>600000</td>
+            <td>asd,asd,ád</td>
+        </tr>
+</table>
+<a  [routerLink]="['/employee/edit']" [routerLinkActive]="['router-link-active']" class="btn btn-danger" style="color: rgb(19, 19, 31); font-size: 15px" >Quản Lý Nhân sự</a>
+<router-outlet></router-outlet>

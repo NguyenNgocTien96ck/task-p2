@@ -1,0 +1,49 @@
+
+<a [routerLink]="['/employee/add']" [routerLinkActive]="['router-link-active']" class="btn btn-danger">Thêm</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Phone</th>
+            <th>address</th>
+            <th>Salary</th>
+            <th>Responsilities</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of dataEmployee;let i = index">
+            <!-- -->
+            <td scope="row">{{ i+1 }}</td>
+            <td> {{item.firstName }} </td>
+            <td>{{item.lastName}}</td>
+            <td>
+                <!-- {{item.gender ? 'Nữ' : 'Nam'}} -->
+                {{item.gender?'Nam':'Nữ'}}
+            </td>
+            <td>{{item.phone}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.salary}}</td>
+            <td>
+                <span *ngFor="let tn of item.responsibilities,let i = index">
+                    <span *ngIf="i!==item.responsibilities.length - 1">
+                        {{tn}},
+                    </span>
+                    <span *ngIf="i==item.responsibilities.length-1 ">
+                        {{tn}}
+                    </span>
+                </span>
+            </td>
+            <td>
+                <a routerLink="detail/{{ item.uuid }}" [routerLinkActive]="['router-link-active']">
+                    <i class="fa fa-edit"></i>Sửa</a>&nbsp;
+                <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">
+                    <i class="fa fa-times"></i> Xóa</button> -->
+                <button type="button" class="btn btn-info btn-lg" (delete)="onDelete()" (click)="show({id: item.uuid,fname: item.firstName,lname: item.lastName})" >Xóa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<app-remote (delete)="delete($event)" ></app-remote>
