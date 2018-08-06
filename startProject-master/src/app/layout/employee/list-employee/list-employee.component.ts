@@ -21,16 +21,15 @@ del: RemoteComponent;
   ngOnInit() {
     this.dataEmployee =  this.dataService.getLists();
   }
-  delete(uuid:string):void{
-    this.dataEmployee = this.dataService.remove(uuid);
+  ngAfterViewInit() {
+    this.dataEmployee = this.dataService.getLists();
   }
   uuid: string;
   show(obj) {
     this.del.openModal(obj);
     this.uuid = obj.id;
   }
-  onDelete(){
-    alert('dsd');
+  onDelete() {
+    this.dataEmployee = this.dataService.remove(this.uuid);
   }
-
 }

@@ -54,4 +54,7 @@ export class EmployeeService {
      getLocal(): Array<Employee> {
          return JSON.parse(localStorage.getItem('renumber'));
      }
+     id_getName(uuid:string) :string {
+        return this.getLocal().find(p=>p.uuid===uuid).lastName;
+     }
     }
